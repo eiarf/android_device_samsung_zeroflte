@@ -53,7 +53,15 @@ void set_sim_info()
 		property_override("ro.vendor.multisim.simslotcount", simslot_count.c_str());
 	}
 	else {
-		LOG(ERROR) << "Could not open '" << simslot_count_path << "'\n";
+		/*
+		 * The 6.6 kernel has no /proc/simslot_count. Without the
+		 * property, init never sets the multisim config and cannot
+		 * tell whether the second rild is needed. Dual-SIM variants
+		 * need the kernel node back before they can report 2.
+		 */
+		LOG(INFO) << "No '" << simslot_count_path << "', assuming one SIM slot\n";
+		property_override("ro.multisim.simslotcount", "1");
+		property_override("ro.vendor.multisim.simslotcount", "1");
 	}
 }
 

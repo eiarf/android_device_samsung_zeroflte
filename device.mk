@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-# Permissions
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
+# NK_HAS_* hardware switches; read here because this file is evaluated
+# before it inherits device-common.mk.
+include device/samsung/universal7420-common/nk_features.mk
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -28,13 +28,20 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth/bt_vendor.conf
 
 # IR
+ifeq ($(NK_HAS_IR),true)
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
+
 PRODUCT_PACKAGES += \
 	android.hardware.ir@1.0-impl \
 	android.hardware.ir@1.0-service
+endif
 
 # Livedisplay
+ifeq ($(NK_HAS_MDNIE),true)
 PRODUCT_PACKAGES += \
 	vendor.lineage.livedisplay@2.1-service.zero
+endif
 
 # Thermal config
 PRODUCT_COPY_FILES += \

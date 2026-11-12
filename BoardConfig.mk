@@ -25,9 +25,6 @@ include device/samsung/universal7420-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/samsung/zeroflte
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := zeroflte,zerofltexx,zeroflteskt,zerofltetmo,zerofltebmc,zerofltelgt,zerofltektt
 

@@ -18,11 +18,6 @@
 # before it inherits device-common.mk.
 include device/samsung/universal7420-common/nk_features.mk
 
-# Audio
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml \
-	$(LOCAL_PATH)/configs/audio/mixer_paths-audience.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0-audience.xml \
-
 # Bluetooth
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth/bt_vendor.conf

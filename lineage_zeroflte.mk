@@ -37,7 +37,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 # Use the latest approved GMS identifiers
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRODUCT_NAME=zerofltexx \
-	PRIVATE_BUILD_DESC="zerofltexx-user 7.0 NRD90M G920FXXU6EVG1 release-keys"
+	DeviceProduct=zerofltexx \
+	BuildDesc="zerofltexx-user 7.0 NRD90M G920FXXU6EVG1 release-keys"
 
 BUILD_FINGERPRINT := samsung/zerofltexx/zeroflte:7.0/NRD90M/G920FXXU6EVG1:user/release-keys

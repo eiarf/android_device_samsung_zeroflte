@@ -32,12 +32,6 @@ PRODUCT_PACKAGES += \
 	android.hardware.ir@1.0-service
 endif
 
-# Livedisplay
-ifeq ($(NK_HAS_MDNIE),true)
-PRODUCT_PACKAGES += \
-	vendor.lineage.livedisplay@2.1-service.zero
-endif
-
 # Thermal config
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json

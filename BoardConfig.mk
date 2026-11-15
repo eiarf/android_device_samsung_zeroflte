@@ -36,11 +36,6 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_zeroflte
 # Kernel
 TARGET_KERNEL_CONFIG := exynos7420-zeroflte_defconfig
 
-# Manifest
-ifeq ($(NK_HAS_IR),true)
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest_ir.xml
-endif
-
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 

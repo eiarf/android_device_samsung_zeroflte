@@ -5,55 +5,26 @@
             "Type":"CPU",
             "HotThreshold":[
                 "NAN",
-                "NAN",
-                "NAN",
-                "80.0",
-                "NAN",
-                "NAN",
-                95.0
-            ],
-            "VrThreshold":"NAN",
-            "Multiplier":0.001
-        },
-        {
-            "Name":"ac",
-            "Type":"USB_PORT",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "60.0",
-                "NAN"
+                75.0,
+                80.0,
+                85.0,
+                90.0,
+                95.0,
+                110.0
             ],
             "HotHysteresis":[
                 0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                5.0,
-                0.0
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0
             ],
-            "VrThreshold":"NAN",
             "Multiplier":0.001,
-            "Monitor": true
-        },
-        {
-            "Name":"max77843-fuelgauge",
-            "Type":"UNKNOWN",
-            "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN",
-                "NAN"
-            ],
-            "VrThreshold":"NAN",
-            "Multiplier":0.001
+            "Monitor":true,
+            "TripPointIgnorable":true,
+            "PassiveDelay":7000
         },
         {
             "Name":"battery",
@@ -67,22 +38,8 @@
                 "NAN",
                 60.0
             ],
-            "VrThreshold":"NAN",
-            "Multiplier":0.001
+            "Multiplier":0.001,
+            "PollingDelay":60000
         }
-    ],
-    "CoolingDevices":[
-        {
-            "Name":"thermal-cpufreq-0",
-            "Type":"CPU"
-        },
-        {
-            "Name":"thermal-cpufreq-1",
-            "Type":"CPU"
-        },
-        {
-            "Name":"battery",
-            "Type":"BATTERY"
-        }        
     ]
 }

@@ -62,4 +62,14 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTIO
 # Fix proprietary blobs
 BLOB_ROOT="$ANDROID_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
+# Android 17 has no VNDK, so vendor code can't load libstdc++. These blobs
+# only list it; their __cxa_* symbols come from libc.
+for lib in lib lib64; do
+    for blob in libbauthtzcommon.so libegis_fp_normal_sensor_test.so libgf_in_system_lib.so; do
+        [ -f "$BLOB_ROOT/vendor/$lib/$blob" ] && "${PATCHELF}" --remove-needed libstdc++.so "$BLOB_ROOT/vendor/$lib/$blob"
+    done
+done
+"${PATCHELF}" --remove-needed libstdc++.so $BLOB_ROOT/vendor/lib/soundfx/libLifevibes_lvverx.so
+"${PATCHELF}" --remove-needed libstdc++.so $BLOB_ROOT/vendor/lib/soundfx/libLifevibes_lvvetx.so
+
 "${MY_DIR}/setup-makefiles.sh"

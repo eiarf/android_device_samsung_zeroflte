@@ -18,3 +18,18 @@ Front Camera | 5 MP, f/1.9, 22mm (wide), 1/4.1", 1.34µm
 Release Date | April 2015
 
 ![Galaxy S6](https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s6-3.jpg "Galaxy S6")
+
+## Android 15 (Kernel 6.6) Status & Fixes
+
+### Working
+- Boot to Desktop & System UI (Project Infinity-X 2.9 / Android 15)
+- Touchscreen & Capacitive Touchkeys (with screen-off inhibition decoupling)
+- 2 GB ZRAM Swap (`lzo-rle`) with kernel module auto-load on boot completion
+- Kernel Watchdog (`dsh_esslog`) with automatic disarm upon successful boot
+- GPU DVFS floor raised to 420 MHz (boost up to 544 MHz) for smooth 1440x2560 WQXGA rendering
+- CPU DVFS floors tuned (Little: 600 MHz, Big: 1000 MHz) with top-app uclamp boost
+- Hardware accelerated composition (`debug.sf.hw=1`, blur disabled)
+- Wi-Fi, Bluetooth, Audio, Sensors, ADB
+
+### Known Issues
+- **Camera**: Upstream kernel 6.6 port currently lacks the Exynos 7420 FIMC-IS camera provider HAL.

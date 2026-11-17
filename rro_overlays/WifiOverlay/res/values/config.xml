@@ -56,4 +56,19 @@
 
     <!-- Enable WPA2 to WPA3 auto-upgrade -->
     <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+
+    <!-- Suspend optimizations not supported by bcm4358 HAL/supplicant -->
+    <bool translatable="false" name="config_wifiSuspendOptimizationsEnabled">false</bool>
+
+    <!-- Firmware roaming via HAL API not supported by bcm4358 -->
+    <bool translatable="false" name="config_wifiUseHalApiToDisableFwRoaming">false</bool>
+
+    <!-- Disable firmware roaming in idle mode -->
+    <bool translatable="false" name="config_wifiDisableFirmwareRoamingInIdleMode">true</bool>
+
+    <!-- Bluetooth coexistence algorithm not supported via supplicant AIDL -->
+    <bool translatable="false" name="config_wifiDefaultCoexAlgorithmEnabled">false</bool>
+
+    <!-- Connected MAC randomization not supported -->
+    <bool translatable="false" name="config_wifi_connected_mac_randomization_supported">false</bool>
 </resources>

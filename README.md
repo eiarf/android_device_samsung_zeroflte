@@ -21,15 +21,17 @@ Release Date | April 2015
 
 ## Android 15 (Kernel 6.6) Status & Fixes
 
-### Working
-- Boot to Desktop & System UI (Project Infinity-X 2.9 / Android 15)
-- Touchscreen & Capacitive Touchkeys (with screen-off inhibition decoupling)
-- 2 GB ZRAM Swap (`lzo-rle`) with kernel module auto-load on boot completion
-- Kernel Watchdog (`dsh_esslog`) with automatic disarm upon successful boot
-- GPU DVFS floor raised to 420 MHz (boost up to 544 MHz) for smooth 1440x2560 WQXGA rendering
-- CPU DVFS floors tuned (Little: 600 MHz, Big: 1000 MHz) with top-app uclamp boost
-- Hardware accelerated composition (`debug.sf.hw=1`, blur disabled)
-- Wi-Fi, Bluetooth, Audio, Sensors, ADB
+> **Note:** The Android 15 / Linux 6.6 bring-up modifications in this `@eiarf` fork were **developed, ported, and debugged by an LLM (Large Language Model)**, verified on `SM-G920F` (`zeroflte`).
 
-### Known Issues
-- **Camera**: Upstream kernel 6.6 port currently lacks the Exynos 7420 FIMC-IS camera provider HAL.
+### Working
+- Boot to Desktop & System UI (Project Infinity-X 2.9 / Android 15, SELinux Enforcing)
+- Display / DRM / KMS (`s6_kms_hwcomposer`, `s6_drm_gralloc`, Mesa 24.0.9 Panfrost GPU)
+- Touchscreen & Capacitive Touchkeys (with screen-off inhibition decoupling)
+- 2 GB ZRAM Swap with kernel module auto-load on boot completion
+- Kernel Watchdog (`dsh_esslog`) with automatic disarm upon successful boot
+- Tuned CPU (`schedutil`) & GPU (`420 MHz` min floor) DVFS, ADPF `task_profiles.json`
+- Wi-Fi (`BCM4358A3` + `WifiOverlay` BCM4358 overrides), Bluetooth, Audio (`zero-wm1840`), ADB
+- **Camera** (`ICameraProvider/internal/0` AIDL V3 V4L2/SoftISP HAL + rear 16MP `s5c73c2`/`s5k2p2`, front 5MP `s5k4e6`, `ak7345` AF, `idg2030` OIS, `s2mpb02` Flash/Torch, 1080p video)
+- **GNSS (`BCM4773`), NFC (`S3FWRN5P`), IR Blaster (`irled_remote`), & Heart Rate (`MAX86900`)**
+
+Companion fixes & flashable release ZIP: https://github.com/eiarf/zeroflte-android15-fixes
